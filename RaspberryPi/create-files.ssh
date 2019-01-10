@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Replace actual values for Wi-Fi SSID and Wi-Fi Password
+
+touch /Volumes/boot/ssh
+
+echo "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid=\"wi-fi-ssid\"
+    psk=\"wi-fi-password\"
+    proto=RSN
+    key_mgmt=WPA-PSK
+    pairwise=CCMP
+    auth_alg=OPEN
+}" > /Volumes/boot/wpa_supplicant.conf
